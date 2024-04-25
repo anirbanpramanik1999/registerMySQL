@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Student Info</title>
+</head>
+<body>
+    <h1>student List </h1>
+
+    <table class="table table-bordered  w-50">
+
+        <tr class="table-info">
+            <th>Sl. No.</th>
+            <th>Firstr Name</th>
+            <th>Last Name</th>
+            <th>Email ID</th>
+            <th>Password</th>
+            <th>Department</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+          
+            
+        <% if(students.length>0) {%>
+        
+             
+            <%for(let i=0;i<students.length;i++) { %>
+ 
+             <tr class="table-secondary">
+                 <td><%- students[i].id  %></td>
+                 <td><%- students[i].firstName  %></td>
+                 <td><%- students[i].lastName  %></td>
+                 <td><%-  students[i].email %></td>
+                 <td class="table-danger"><%-  students[i].password %></td>
+                 <td><%-  students[i].department %></td>
+                 <td><%-  students[i].age %></td>
+                 <td class="table-danger">
+                    <a href="/delete-student?id=<%- students[i].id  %>">Delete</a>
+                    <a href="/update-student?id=<%- students[i].id  %>">Update</a>
+                </td>
+             </tr>
+ 
+             <% }%>
+ 
+         <% } else { %>
+             <h1>students data not found </h1>
+ 
+ 
+          <%  } %>   
+
+
+    </table>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
